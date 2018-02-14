@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="icon" href="images/icons/icon-384x384.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich|Audiowide|Righteous|Viga">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112091281-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-112091281-2');
+  </script>
+</head>
+<body>
+  <div id="loading">
+    <div class="preloader-wrapper active">
+      <div class="spinner-layer spinner-red-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="hidden" style="display: none">
+    <header class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper grey darken-3">
+          <a href="#" data-activates="mobile-menu" class="button-collapse btn red">
+            <i class="material-icons">menu</i>
+          </a>
+          <a href="index.html" id="websiteTitle" class="brand-logo center"><span class="hide-on-small-only">FIITJIANS CBE</span><span class="hide-on-med-and-up">Fiitjians cbe</span></a>
+          <ul class="hide-on-med-and-down">
+            <li><a href="/index.html" class="green-text">Home</a></li>
+            <li><a href="/classroom.html" class="green-text">Classroom</a></li>
+            <li><a href="/memes.html" class="green-text">Memes</a></li>
+          </ul>
+        </div>
+        <div id="loggedStatus"></div>
+      </nav>
+    </header>
+    <ul id="mobile-menu" class="side-nav">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/classroom.html">Classroom</a></li>
+      <li><a href="/memes.html">Memes</a></li>
+    </ul>
+    {% block body %}{% endblock %}
+    <footer class="page-footer grey darken-3">
+      <div class="container">
+        <div class="row">
+          <div class="col m7 s12">
+            <h5 class="white-text">FIITJIANS CBE</h5>
+            <p>
+              Property of Aravindan, class 9A<sub>1</sub>, FIITJEE Coimbatore<br>
+              <img src="/images/cubetastic_logo.png" id="cubetasticLogo" alt="Cubetastic logo"> Check out my site @ <a href="https://cubetastic33.github.io" class="green-text">https://cubetastic33/github.io</a>
+              <br>
+              <img src="/images/IG_Glyph_Fill.png" id="instagramLogo" alt="Instagram logo"><a href="https://www.instagram.com/cubetastic33/" class="green-text">Follow Me</a> on instagram!
+            </p>
+          </div>
+          <div class="col m3 offset-m1 s12">
+            <h5 class="white-text">Contact me</h5>
+            Email id: aravkasi@gmail.com
+            <div class="g-follow" data-annotation="bubble" data-height="24" data-href="//plus.google.com/u/0/115459544649352816998" data-rel="author"></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2018 copyright Aravindan
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  function hideloader() {
+    $("#loading").hide();
+    $("#hidden").show();
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script src="js/main.js"></script>
+<script src="js/loggedStatus.js"></script>
+{% block javascript %}
+{% endblock %}
+</html>
