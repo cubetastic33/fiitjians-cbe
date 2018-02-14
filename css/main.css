@@ -1,0 +1,137 @@
+/*
+  Common stuff in all pages
+*/
+
+#division {
+  padding: 1px;
+  min-height: 50vh;
+}
+
+#loggedStatus {
+  position: absolute;
+  top: 0em;
+  right: 10px;
+}
+
+#profilePic {
+  border: 1px solid black;
+  height: 3em;
+  margin: 0 2vh;
+}
+
+#cubetasticLogo, #instagramLogo {
+  width: 2em;
+  margin-bottom: -0.5em;
+}
+
+/*
+  Home Page
+*/
+
+#homePage {
+  background-color: rgb(0, 0, 30);
+  height: 90vh;
+  padding: 1px;
+}
+
+#selectClass {
+  margin-top: 5vh;
+}
+
+.class-box {
+  height: 7em;
+  cursor: pointer;
+}
+
+.class-box h5 {
+  width: 100%;
+  text-align: center;
+}
+
+/*
+  Classroom
+*/
+
+#classroomPage {
+  background-color: rgb(0, 0, 30);
+  height: 90vh;
+  padding: 1px;
+}
+
+#welcomeText {
+  margin-top: 10vh;
+}
+
+#btn1, #btn2, #btn3 {
+  position: absolute;
+  top: 70vh;
+  min-width: 30vw;
+}
+
+#btn4, #btn5, #btn6 {
+  position: absolute;
+  top: 80vh;
+  min-width: 30vw;
+}
+
+#btn1, #btn4 {
+  left: 1vw;
+}
+
+#btn2, #btn5 {
+  left: 35vw;
+}
+
+#btn3, #btn6 {
+  right: 1vw;
+}
+
+table {
+  color: black;
+}
+
+tr {
+  border: 1px solid black;
+}
+
+.break {
+  background-color: black;
+  color: white;
+}
+
+/*
+Sign up and Sign in Forms
+*/
+
+#formHeading {
+  border-radius: 7px 7px 0 0;
+  font-family: righteous;
+  font-size: 250%;
+}
+
+#signUp, #signIn {
+  border-bottom: 2px solid blue;
+  border-left: 2px solid blue;
+  border-right: 2px solid blue;
+  border-radius: 0 0 7px 7px;
+  margin-top: -1.5em;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/*
+  Memes
+*/
+
+#newPostBtn {
+  width: 100vw;
+}
+
+.like {
+  font-size: 30px;
+}
