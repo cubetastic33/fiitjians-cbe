@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block title %}Fiitjians cbe | Sign In{% endblock %}
+
+{% block body %}
+<div id="division">
+  <div class="container">
+    <div class="row">
+      <div id="formHeading" class="grey darken-4 white-text center col s8 offset-s2">Sign up</div><br>
+    </div>
+    <div class="row">
+      <form id="signUp" class="col s8 offset-s2 amber lighten-1">
+        <div class="row">
+          <div class="input-field col s11">
+            <i class="material-icons prefix">account_circle</i>
+            <input type="text" id="username" class="validate" required>
+            <label for="username" id="usernameLabel">Username</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s11">
+            <i class="material-icons prefix">email</i>
+            <input type="email" id="email" class="validate" required>
+            <label for="email" id="emailLabel">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="password" id="password" required>
+            <label for="password" id="passwordLabel">Password</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="password" id="confPassword">
+            <label for="confPasswordLabel">Confirm Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s11">
+            <i class="material-icons prefix">phone</i>
+            <input type="number" id="mobile">
+            <label for="mobile" id="mobileLabel">Mobile No.</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s11">
+            <i class="material-icons prefix">date_range</i>
+            <input type="text" id="dob" class="datepicker" required>
+            <label for="dob" id="dobLabel">Date of Birth</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s3">
+            <input type="radio" name="gender" value="male" id="male">
+            <label for="male">Male</label>
+          </div>
+          <div class="col s3">
+            <input type="radio" name="gender" value="female" id="female">
+            <label for="female">Female</label>
+          </div>
+          <div class="col s6">
+            <input type="radio" name="gender" value="unknown" id="unknown">
+            <label for="unknown">I don't wish to disclose</label>
+          </div>
+        </div>
+        <div class="row">
+          <button type="submit" id="btn" class="waves-effect btn indigo darken-3 indigo-text text-lighten-3 col s3 offset-s1">Sign up</button>
+        </div>
+        <div class="row">
+          <p class="white-text col s11 offset-s1">
+            Already a member of Fiitjians cbe? <a href="signin.html">Sign in</a> now!
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

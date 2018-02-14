@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+
+{% block title %}Fiitjians cbe | Classroom{% endblock %}
+
+{% block body %}
+<div id="classroomPage">
+  <h4 id="welcomeText" class="center white-text">
+    Welcome to your classroom page!<br>
+    Current class: {{ my_class }}<br><br>
+    Timetables for your class are given by {{ contributor }}
+  </h4>
+  <button data-target="timetable1" id="btn1" class="modal-trigger waves-effect btn teal darken-1">Mon<span class="hide-on-small-only">day</span></button>
+  <button data-target="timetable2" id="btn2" class="modal-trigger waves-effect btn teal darken-1">Tue<span class="hide-on-small-only">sday</span></button>
+  <button data-target="timetable3" id="btn3" class="modal-trigger waves-effect btn teal darken-1">Wed<span class="hide-on-small-only">nesday</span></button>
+  <button data-target="timetable4" id="btn4" class="modal-trigger waves-effect btn teal darken-1">Thu<span class="hide-on-small-only">rsday</span></button>
+  <button data-target="timetable5" id="btn5" class="modal-trigger waves-effect btn teal darken-1">Fri<span class="hide-on-small-only">day</span></button>
+  <button data-target="timetable6" id="btn6" class="modal-trigger waves-effect btn teal darken-1">Sat<span class="hide-on-small-only">urday</span></button>
+  <div id="timetable1" class="modal">
+    <div class="modal-content black-text">
+      Disclaimer: These timetables are taken from the FIITJEE website. I am not responsible for errors.
+      <table cellspacing="10">
+        <tr>
+          <td>Timing</td><td>Subject</td>
+        </tr>
+        {% for table_row in timetables[0] %}
+        {{ table_row|safe }}
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <div id="timetable2" class="modal">
+    <div class="modal-content black-text">
+      Disclaimer: These timetables are taken from the FIITJEE website. I am not responsible for errors.
+      <table cellspacing="10">
+        <tr>
+          <td>Timing</td><td>Subject</td>
+        </tr>
+        {% for table_row in timetables[1] %}
+        {{ table_row|safe }}
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <div id="timetable3" class="modal">
+    <div class="modal-content black-text">
+      Disclaimer: These timetables are taken from the FIITJEE website. I am not responsible for errors.
+      <table cellspacing="10">
+        <tr>
+          <td>Timing</td><td>Subject</td>
+        </tr>
+        {% for table_row in timetables[2] %}
+        {{ table_row|safe }}
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <div id="timetable4" class="modal">
+    <div class="modal-content black-text">
+      Disclaimer: These timetables are taken from the FIITJEE website. I am not responsible for errors.
+      <table cellspacing="10">
+        <tr>
+          <td>Timing</td><td>Subject</td>
+        </tr>
+        {% for table_row in timetables[3] %}
+        {{ table_row|safe }}
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <div id="timetable5" class="modal">
+    <div class="modal-content black-text">
+      Disclaimer: These timetables are taken from the FIITJEE website. I am not responsible for errors.
+      <table cellspacing="10">
+        <tr>
+          <td>Timing</td><td>Subject</td>
+        </tr>
+        {% for table_row in timetables[4] %}
+        {{ table_row|safe }}
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <div id="timetable6" class="modal">
+    <div class="modal-content black-text">
+      Note: These timetables are taken from the FIITJEE website. I am not responsible for errors.      
+      Yay, looks like there is no timetable here! Is it a holiday?
+    </div>
+  </div>
+</div>
+{% endblock %}

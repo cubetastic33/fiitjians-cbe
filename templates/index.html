@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block title %}Fiitjians cbe{% endblock %}
+
+{% block body %}
+<div id="homePage">
+  <h4 id="welcomeText" class="center white-text">
+    Welcome to the FIITJEE <b class="green-text">students</b>'<br>
+    Website!
+  </h4>
+  <div id="selectClass" class="container">
+    <div class="row">
+      <div class="blue darken-4 col s4 class-box valign-wrapper white-text"><h5>9 A<sub>1</sub></h5></div>
+      <div class="blue darken-2 col s4 class-box valign-wrapper white-text"><h5>9 B</h5></div>
+      <div class="blue darken-4 col s4 class-box valign-wrapper white-text"><h5>11 A<sub>3</sub></h5></div>
+    </div>
+    <div class="row">
+      <div class="blue darken-4 col s4 offset-s4 valign-wrapper white-text"><p>To add your class here, please contact me.</p></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  $.ajax({
+    url: '/get_ip_address',
+    type: 'POST',
+    success: function(response) {
+      console.log(response);
+      window.ipAddress = response;
+    },
+    error: function(error) {
+      console.log('Error', error);
+    }
+  });
+  $('.class-box').click(function() {
+    className = $(this).text().toString();
+    db.ref('ipAddresses').child(ipAddress.replace(/\./g,' ')).set(className);
+    console.log(className);
+    db.ref('ipAddresses').on('value', function(data) {
+      if (data.child(ipAddress.replace(/\./g,' ')).val() == className) {
+        alert('Your class has been set to '+className+' for this IP Address.\
+ However, if you get an error on the next page, then come back here and try again.');
+        window.location.href = 'classroom.html';
+      }
+    });
+  });
+</script>
+{% endblock %}

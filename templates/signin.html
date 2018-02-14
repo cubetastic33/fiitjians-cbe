@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %}Fiitjians cbe | Sign In{% endblock %}
+
+{% block body %}
+<div id="division">
+  <div class="container">
+    <div class="row">
+      <div id="formHeading" class="grey darken-4 white-text center col s6 offset-s3">Sign in</div><br>
+    </div>
+    <div class="row">
+      <form id="signIn" class="col s6 offset-s3 amber">
+        <div class="row">
+          <div id="msg"></div>
+        </div>
+        <div class="row">
+          <div class="input-field col s11">
+            <i class="material-icons prefix">account_circle</i>
+            <input type="text" id="username" required>
+            <label for="username">Username</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s11">
+            <input type="password" id="password" required>
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <button type="submit" class="waves-effect btn indigo darken-3 indigo-text text-lighten-3 col s3 offset-s1">Sign in</button>
+          <button id="forgotPassword" class="waves-effect btn indigo darken-3 indigo-text text-lighten-3 col s6 offset-s1">Forgot password</button>
+        </div>
+        <div class="row">
+          <p class="white-text col s11 offset-s1">
+            Not a member of Fiitjians cbe yet? <a href="signup.html">Sign up</a> now!
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}Fiitjians cbe{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="css/discuss.css">
+<div id="division">
+  <div id="discussBox">
+    <div id="addImage" class="modal">
+      <div class="modal-content">
+        <form>
+          <div class="file-field input-field">
+            <div class="btn blue darken-4">
+              <span>Image / Video</span>
+              <input type="file" id="postImage" accept="image/*, video/*">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" id="postBtn" class="modal-action modal-close btn-flat">Send</a>
+      </div>
+    </div>
+    <div id="chatBody">
+      <div id="insideGroup">
+        <div class="textWrapper">
+          <div id="messages" class="container"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer" class="amber darken-2">
+      <div class="input-field">
+        <input type="text" id="chatMessage" placeholder="Enter your message here...">
+        <i class="material-icons" onclick="initializeMessage()" style="cursor: pointer">send</i>
+        <button data-target="addImage" class="btn modal-trigger amber darken-2 black-text"><i class="material-icons" onclick="addImageToChat()" style="cursor: pointer">insert_photo</i></button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="js/discuss.js"></script>
+{% endblock %}
