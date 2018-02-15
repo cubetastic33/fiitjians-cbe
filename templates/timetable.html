@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+
+{% block title %}Fiitjians cbe | Timetable{% endblock %}
+
+{% block body %}
+<div id="timetablePage" class="container">
+  <h4 id="welcomeText" class="center">
+    Welcome to your timetable page!<br>
+    Current class: {{ my_class }}<br><br>
+  </h4>
+  Disclaimer: These timetables are taken from the FIITJEE website. I am not responsible for errors.
+  <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header active"><i class="material-icons">done_all</i>Monday</div>
+      <div class="collapsible-body">
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Class/Teacher</th></tr>
+          </thead>
+          <tbody>
+            {% for table_row in timetables[0] %}
+            {{ table_row|safe }}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header active"><i class="material-icons">done_all</i>Tuesday</div>
+      <div class="collapsible-body">
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Class/Teacher</th></tr>
+          </thead>
+          <tbody>
+            {% for table_row in timetables[1] %}
+            {{ table_row|safe }}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header active"><i class="material-icons">done_all</i>Wednesday</div>
+      <div class="collapsible-body">
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Class/Teacher</th></tr>
+          </thead>
+          <tbody>
+            {% for table_row in timetables[2] %}
+            {{ table_row|safe }}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header active"><i class="material-icons">done</i>Thursday</div>
+      <div class="collapsible-body">
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Class/Teacher</th></tr>
+          </thead>
+          <tbody>
+            {% for table_row in timetables[3] %}
+            {{ table_row|safe }}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header active"><i class="material-icons">clear</i>Friday</div>
+      <div class="collapsible-body">
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Class/Teacher</th></tr>
+          </thead>
+          <tbody>
+            {% for table_row in timetables[4] %}
+            {{ table_row|safe }}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </li>
+    <li>
+      <div class="collapsible-header active"><i class="material-icons">clear</i>Saturday</div>
+      <div class="collapsible-body">
+        There is no timetable for Saturday! Is it a holiday?
+      </div>
+    </li>
+  </ul>
+</div>
+{% endblock %}

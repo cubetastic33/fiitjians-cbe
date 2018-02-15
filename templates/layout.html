@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Fiitjians cbe! This is a website built so that you can see your class timetables in a nice, clean and fast user interface.">
+  <meta name="theme-color" content="#03A9F4">
   <title>{% block title %}{% endblock %}</title>
   <link rel="icon" href="images/icons/icon-384x384.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich|Audiowide|Righteous|Viga">
@@ -18,9 +20,10 @@
 
     gtag('config', 'UA-112091281-2');
   </script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
-  <div id="loading">
+  <div id="loading" class="valign-wrapper">
     <div class="preloader-wrapper active">
       <div class="spinner-layer spinner-red-only">
         <div class="circle-clipper left">
@@ -36,15 +39,15 @@
   <div id="hidden" style="display: none">
     <header class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper grey darken-3">
+        <div class="nav-wrapper blue">
           <a href="#" data-activates="mobile-menu" class="button-collapse btn red">
             <i class="material-icons">menu</i>
           </a>
-          <a href="index.html" id="websiteTitle" class="brand-logo center"><span class="hide-on-small-only">FIITJIANS CBE</span><span class="hide-on-med-and-up">Fiitjians cbe</span></a>
+          <a href="index.html" id="websiteTitle" class="brand-logo center">Fiitjians</a>
           <ul class="hide-on-med-and-down">
-            <li><a href="/index.html" class="green-text">Home</a></li>
-            <li><a href="/classroom.html" class="green-text">Classroom</a></li>
-            <li><a href="/memes.html" class="green-text">Memes</a></li>
+            <li><a href="/index.html" class="black-text">Home</a></li>
+            <li><a href="/timetable.html" class="black-text">Timetable</a></li>
+            <li><a href="/memes.html" class="black-text">Memes</a></li>
           </ul>
         </div>
         <div id="loggedStatus"></div>
@@ -52,32 +55,38 @@
     </header>
     <ul id="mobile-menu" class="side-nav">
       <li><a href="/index.html">Home</a></li>
-      <li><a href="/classroom.html">Classroom</a></li>
+      <li><a href="/timetable.html">Timetable</a></li>
       <li><a href="/memes.html">Memes</a></li>
     </ul>
     {% block body %}{% endblock %}
-    <footer class="page-footer grey darken-3">
+    <footer class="page-footer blue">
       <div class="container">
         <div class="row">
-          <div class="col m7 s12">
-            <h5 class="white-text">FIITJIANS CBE</h5>
-            <p>
-              Property of Aravindan, class 9A<sub>1</sub>, FIITJEE Coimbatore<br>
-              <img src="/images/cubetastic_logo.png" id="cubetasticLogo" alt="Cubetastic logo"> Check out my site @ <a href="https://cubetastic33.github.io" class="green-text">https://cubetastic33/github.io</a>
-              <br>
-              <img src="/images/IG_Glyph_Fill.png" id="instagramLogo" alt="Instagram logo"><a href="https://www.instagram.com/cubetastic33/" class="green-text">Follow Me</a> on instagram!
+          <div class="col l6 s12">
+            <h5 class="white-text">Fiitjians Coimbatore</h5>
+            <p class="grey-text text-lighten-4">Created by Aravindan & Aditya.</br>
+            This website and its contents are not affiliated with FIITJEE or its localised branch. For more, see our <a href="legal.html" class="red-text">legal statement</a>.</br><br>
+            <a class="github-button" href="https://github.com/cubetastic33/fiitjians-cbe" data-size="large" data-show-count="true" aria-label="Star cubetastic33/fiitjians-cbe on GitHub">Star</a><br><br>
+            For help or support contact us:</br>
+            Aditya Radhakrishnan: adityaradk@gmail.com</br>
+            Aravindan: aravkasi@gmail.com
             </p>
           </div>
-          <div class="col m3 offset-m1 s12">
-            <h5 class="white-text">Contact me</h5>
-            Email id: aravkasi@gmail.com
-            <div class="g-follow" data-annotation="bubble" data-height="24" data-href="//plus.google.com/u/0/115459544649352816998" data-rel="author"></div>
+          <div class="col l4 offset-l2 hide-on-small-only">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="https://cubetastic33.github.io/">Aravind's Site</a></li>
+              <li><a class="grey-text text-lighten-3" href="https://botperson.github.io/">Aditya's Site</a></li>
+              <li><a class="grey-text text-lighten-3" href="https://hangouts.google.com/group/zNFhUctn4kZbZunB3badges.html">IX B only Hangouts group</a></li>
+            </ul>
+            <a class="github-button" href="https://github.com/cubetastic33" data-size="large" data-show-count="true" aria-label="Follow @cubetastic33 on GitHub">Follow @cubetastic33</a>
+            <a class="github-button" href="https://github.com/botperson" data-size="large" data-show-count="true" aria-label="Follow @botperson on GitHub">Follow @botperson</a>
           </div>
         </div>
       </div>
-      <div class="footer-copyright">
+      <div class="footer-copyright" id="FooterBase">
         <div class="container">
-          © 2018 copyright Aravindan
+          © 2018 Copyright Aravindan and Aditya Radhakrishnan.
         </div>
       </div>
     </footer>
