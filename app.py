@@ -21,9 +21,9 @@ def index():
 def index_html():
   return render_template('index.html')
 
-@app.route('/classroom.html', methods=['GET'])
-def classroom_html():
-  return render_template('classroom.html', my_class = get_timetable.get_class(get_ipaddr()), contributor = get_timetable.get_contributor(get_ipaddr()), timetables = get_timetable.get_timetables(get_ipaddr()))
+@app.route('/timetable.html', methods=['GET'])
+def timetable_html():
+  return render_template('timetable.html', my_class = get_timetable.get_class(get_ipaddr()), timetables = get_timetable.get_timetables(get_ipaddr()))
 
 @app.route('/memes.html')
 def memes_html():
@@ -36,6 +36,10 @@ def chatDiv_html():
 @app.route('/profile.html')
 def profile_html():
   return render_template('profile.html')
+
+@app.route('/legal.html')
+def legal_html():
+  return render_template('legal.html')
 
 @app.route('/signin.html')
 def signin_html():
@@ -67,4 +71,3 @@ def send_images(path):
 
 if __name__ == '__main__':
   app.run(debug = True)
- 
