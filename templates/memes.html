@@ -4,63 +4,68 @@
 
 {% block body %}
 <div id="division">
-  <div id="signinreqmessage" style="display: none">Welcome to Nine A<sub>1</sub>'s official memes page! Here, you can see and create new memes.<br>
-  Please note that you need to sign in to see private memes, and you need to be signed in with an 
-  authorised account to be able to see memes that require authorisation. For more details, please 
-  contact me, @ class 9A<sub>1</sub>, 1<sup>st</sup> floor, last class in the left side once you 
-  turn right.</div>
-  <div id="signinreq" style="display: none">
-    <p>
-      Welcome to 9 A1's official meme page! Featured meme creators from instagram, such as:
-    </p>
-    <ul class="collection">
-      <li class="collection-item">be.like.a1</li>
-      <li class="collection-item">suda_suda_memes</li>
-    </ul>
-    <p>have agreed to start posting their memes here!</p>
-    <span id="button">
-      <button id="newPostBtn" data-target="newPost" class="btn modal-trigger waves-effect waves-light btn black">New post</button>
-    </span>
-    <div id="newPost"class="modal">
-      <div class="modal-content">
-        <h4>New Post</h4>
-        <form id="newPostForm">
-          <div class="input-field">
-            <select id="category">
-              <option value="" disabled selected>Category</option>
-              <option value="public">Public</option>
-              <option value="private">Private</option>
-              <option value="authorisationReq">Authorisation Required</option>
-            </select>
-          </div>
-          <div class="file-field input-field">
-            <div class="btn">
-              <span>Image</span>
-              <input type="file" id="postImage" accept="image/*">
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text">
-            </div>
-          </div>
-          <div class="input-field">
-            <textarea id="description" class="materialize-textarea" required></textarea>
-            <label for="description">Enter image description here</label>
-          </div>
-          <p>
-            Tags: example - #helloWorld, #myFirstTag
-            <div id="tags" class="chips"></div>
-          </p>
-          <p>
-            <input type="checkbox" id="anonymous">
-            <label for="anonymous">Anonymous</label>
-          </p>
-        </form>
+  <div class="section white">
+    <div class="row container">
+      <div id="signinreqmessage" class="flow-text" style="display: none"></br>
+        Looks like you are not authorised to access the content of this page! This is a place where
+        students can display their memes to ease their anger. As of now, only students know how to see
+        the actual content of this page. If you are a student, and wish to know how to access this page's
+        actual content, then please contact the site admins!<br>
+        Site Admins: Aravindan of class 10 A<sub>1</sub>, and Aditya. R of class 10 B.
       </div>
-      <div class="modal-footer">
-        <a href="#!" id="postBtn" class="modal-action modal-close btn-flat">Post</a>
+      <div id="signinreq" style="display: none">
+        <p class = "flow-text">
+          Welcome to 10 A1's official meme page! Featured meme creators from instagram, such as:
+        </p>
+        <ul class="collection">
+          <li class="collection-item">be.like.a1</li>
+          <li class="collection-item">suda_suda_memes</li>
+        </ul>
+        <p class = "flow-text">have agreed to start posting their memes here!</p>
+        <center><span id="button">
+          <button id="newPostBtn" data-target="newPost" class="btn modal-trigger waves-effect waves-light btn black">New post</button>
+        </span></center>
+        <div id="newPost"class="modal">
+          <div class="modal-content">
+            <h4>New Post</h4>
+            <form id="newPostForm">
+              <div class="input-field">
+                <select id="category">
+                  <option value="" disabled selected>Category</option>
+                  <option value="public">Public</option>
+                  <option value="private">Private</option>
+                </select>
+              </div>
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Image</span>
+                  <input type="file" id="postImage" accept="image/*">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+              <div class="input-field">
+                <textarea id="description" class="materialize-textarea" required></textarea>
+                <label for="description">Enter image description here</label>
+              </div>
+              <p>
+                Tags: example - #helloWorld, #myFirstTag
+                <div id="tags" class="chips"></div>
+              </p>
+              <p>
+                <input type="checkbox" id="anonymous">
+                <label for="anonymous">Post Anonymously</label>
+              </p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" id="postBtn" class="modal-action modal-close btn-flat">Post</a>
+          </div>
+        </div>
+        <div id="memes"></div>
       </div>
     </div>
-    <div id="memes"></div>
   </div>
 </div>
 {% endblock %}

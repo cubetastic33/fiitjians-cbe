@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block title %}Fiitjians cbe | Projects{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <p class="flow-text">
+      Welcome to the Projects page!
+    </p>
+  </div>
+  <div class="row">
+    <h5>Program to find HCF and LCM using Euclid's Algorithm:</h5>
+    <p class="flow-text" id="instructions">
+      Enter two +<sup>ve</sup> integers &le; 9223372036854775807 (around 64 bytes, 2<sup>63</sup> - 1, the -1 because of 0) in the input fields below, or <span id="switchInputMethod" class="blue-text">change the input method</span>.
+    </p>
+    <p class="flow-text">
+      You can also try out the "Tell me the factors as well!" button, but please do that with small numbers.
+      It is only there to show efficiency of Euclid's Algorithm, even when you have a computer
+    </p>
+  </div>
+  <div class="row" id="inputMethod">
+    <div class="input-field col s6">
+      <input type="number" id="number1" value="1467654368">
+    </div>
+    <div class="input-field col s6">
+      <input type="number" id="number2" value="45351972">
+    </div>
+  </div>
+  <div class="row">
+    <div class="btn red waves-effect" onclick="calculate()">Tell Me!</div>
+    <div class="btn red waves-effect" onclick="findFactors()">Tell Me the factors as well!</div>
+  </div>
+  <div class="row">
+    <div id="showQuestions" class="col s12"></div>
+  </div>
+  <div class="row">
+    <div class="col s4">
+      <div id="hcf"></div>
+    </div>
+    <div class="col s8">
+      <div id="lcm"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div id="factors" class="col s12" style="word-wrap:break-word"></div>
+  </div>
+  <div class="row">
+    <div id="steps" class="col s12"></div>
+  </div>
+  <div class="row">
+    <p>
+      Done By:<br>
+      Gokul Adethya - He helped me understand Euclid's Algorithm, helped with coming up with good designs,
+      and he wrote the python program to find factors.<br>
+      Aravindan - I wrote the python programs to find HCF & LCM, and did the html, JavaScript,
+      and AJAX, and the UI.
+    </p>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="js/projects.js"></script>
+{% endblock %}

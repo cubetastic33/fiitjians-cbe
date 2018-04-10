@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block title %}Fiitjians cbe | Upload{% endblock %}
+
+{% block body %}
+<div id="division" class="container">
+  <div id="authorisationReq" class="hide">
+    <p class="flow-text">
+      Welcome to the upload page. Select the class, and then enter the raw html. When you go to
+      fiitjee login make sure the first timetable is for monday, and then do the following steps:
+    </p>
+    <ul class="collection">
+      <li class="collection-item">Ctrl + U</li>
+      <li class="collection-item">Ctrl + A</li>
+      <li class="collection-item">Ctrl + C</li>
+      <li class="collection-item">Come back to this tab and select the textarea below</li>
+      <li class="collection-item">Ctrl + V</li>
+    </ul>
+    <p class="flow-text">
+      That's it! Just click submit and you're done! Just verify that the timetable is showing properly.
+    </p>
+    <form id="timetableForm" class="container">
+      <div class="row">
+        <div class="col m6 s12 input-field">
+          <select id="select_class">
+            <option value="9A1">9 A1</option>
+            <option value="9B">9 B</option>
+            <option value="11A3">11 A3</option>
+          </select>
+          <label>Class</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 input-field">
+          <textarea id="raw_html" class="materialize-textarea"></textarea>
+          <label for="raw_html">
+            <br>Raw HTML
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <button class="col s6 waves-effect waves-light btn black" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div id="noAuthorisation" class="hide">
+    <p class="flow-text red-text">
+      Oops! Looks like you are not authorised to use this page.
+    </p>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      db.ref('users/'+user.uid).on('value', function(data) {
+        if (data.child('authorised').val() == 'yes') {
+          $('#authorisationReq').removeClass('hide');
+        } else {
+          $('#noAuthorisation').removeClass('hide');
+          $('#authorisationReq').addClass('hide');
+        }
+      });
+    } else {
+      $('#noAuthorisation').removeClass('hide');
+      $('#authorisationReq').addClass('hide');
+    }
+  });
+  $('#timetableForm').submit(function(e) {
+    e.preventDefault();
+    var d = new Date();
+    var n = d.getTime().toString();
+    db.ref('timetables').child($('#select_class').val()).set($('#raw_html').val());
+    db.ref('timetables').child('time').set(n);
+    db.ref('timetables').on('value', function(data) {
+      if (data.child('time').val() == n) {
+        alert('Sent Data to database. You will now be redirected. Please check if the timetable is showing properly!');
+        window.location.href = "index.html";
+      }
+    });
+  });
+</script>
+{% endblock %}

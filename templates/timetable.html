@@ -5,15 +5,22 @@
 {% block body %}
 <div id="timetablePage" class="container">
   <h4 id="welcomeText" class="center">
+  </br>
     Welcome to your timetable page!<br>
     Current class: {{ my_class }}<br><br>
   </h4>
-  Disclaimer: These timetables are taken from the FIITJEE website. I am not responsible for errors.
-  <ul class="collapsible" data-collapsible="accordion">
+  <p class="flow-text">
+    Disclaimer: These timetables are taken from an official source. Site administrators are not
+    responsible for errors caused by lack of accuracy of these sources, or your browser's cache.
+  </p>
+  <ul class="collapsible popout" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header active"><i class="material-icons">done_all</i>Monday</div>
+      <div id="timetable1" class="collapsible-header active"><i class="material-icons">done</i>Monday</div>
       <div class="collapsible-body">
-        <table>
+        {% if timetables[0] == 'Study holiday!' %}
+        Study Holiday!
+        {% else %}
+        <table class = "highlight">
           <thead>
             <tr><th>Time</th><th>Class/Teacher</th></tr>
           </thead>
@@ -23,12 +30,16 @@
             {% endfor %}
           </tbody>
         </table>
+        {% endif %}
       </div>
     </li>
     <li>
-      <div class="collapsible-header active"><i class="material-icons">done_all</i>Tuesday</div>
+      <div id="timetable2" class="collapsible-header"><i class="material-icons">clear</i>Tuesday</div>
       <div class="collapsible-body">
-        <table>
+        {% if timetables[1] == 'Study holiday!' %}
+        Study Holiday!
+        {% else %}
+        <table class = "highlight">
           <thead>
             <tr><th>Time</th><th>Class/Teacher</th></tr>
           </thead>
@@ -38,12 +49,16 @@
             {% endfor %}
           </tbody>
         </table>
+        {% endif %}
       </div>
     </li>
     <li>
-      <div class="collapsible-header active"><i class="material-icons">done_all</i>Wednesday</div>
+      <div id="timetable3" class="collapsible-header"><i class="material-icons">clear</i>Wednesday</div>
       <div class="collapsible-body">
-        <table>
+        {% if timetables[2] == 'Study holiday!' %}
+        Study Holiday!
+        {% else %}
+        <table class = "highlight">
           <thead>
             <tr><th>Time</th><th>Class/Teacher</th></tr>
           </thead>
@@ -53,12 +68,16 @@
             {% endfor %}
           </tbody>
         </table>
+        {% endif %}
       </div>
     </li>
     <li>
-      <div class="collapsible-header active"><i class="material-icons">done</i>Thursday</div>
+      <div id="timetable4" class="collapsible-header"><i class="material-icons">clear</i>Thursday</div>
       <div class="collapsible-body">
-        <table>
+        {% if timetables[3] == 'Study holiday!' %}
+        Study Holiday!
+        {% else %}
+        <table class = "highlight">
           <thead>
             <tr><th>Time</th><th>Class/Teacher</th></tr>
           </thead>
@@ -68,12 +87,16 @@
             {% endfor %}
           </tbody>
         </table>
+        {% endif %}
       </div>
     </li>
     <li>
-      <div class="collapsible-header active"><i class="material-icons">clear</i>Friday</div>
+      <div id="timetable5" class="collapsible-header"><i class="material-icons">clear</i>Friday</div>
       <div class="collapsible-body">
-        <table>
+        {% if timetables[4] == 'Study holiday!' %}
+        Study Holiday!
+        {% else %}
+        <table class = "highlight">
           <thead>
             <tr><th>Time</th><th>Class/Teacher</th></tr>
           </thead>
@@ -83,14 +106,42 @@
             {% endfor %}
           </tbody>
         </table>
+        {% endif %}
       </div>
     </li>
     <li>
-      <div class="collapsible-header active"><i class="material-icons">clear</i>Saturday</div>
+      <div id="timetable6" class="collapsible-header"><i class="material-icons">clear</i>Saturday</div>
       <div class="collapsible-body">
-        There is no timetable for Saturday! Is it a holiday?
+        {% if timetables[5] == 'Study holiday!' %}
+        Study Holiday!
+        {% else %}
+        <table class = "highlight">
+          <thead>
+            <tr><th>Time</th><th>Class/Teacher</th></tr>
+          </thead>
+          <tbody>
+            {% for table_row in timetables[5] %}
+            {{ table_row|safe }}
+            {% endfor %}
+          </tbody>
+        </table>
+        {% endif %}
       </div>
     </li>
   </ul>
 </div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  var d = new Date();
+  var n = d.getDay();
+  if (n > 0) {
+    $('.collapsible').collapsible('open', (n - 1));
+    for (var i = 1; i < n; i++) {
+      $('#timetable'+i+' i').html('done_all');
+    }
+    $('.active i').html('done');
+  }
+</script>
 {% endblock %}

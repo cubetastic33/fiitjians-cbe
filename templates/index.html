@@ -9,22 +9,22 @@
         <h4>Welcome to Fiitjians Cbe!</h4>
         <ul class="collection col s12">
           <li class="collection-item avatar" style="cursor: pointer" onclick="saveIp('9 A1')">
-            <img src="images/9.jpg" alt="9th" class="circle">
-            <span class="title">Class: Nine A<sub>1</sub></span>
+            <img src="images/10.jpg" alt="10th" class="circle">
+            <span class="title">Class: Ten A<sub>1</sub></span>
             <p>
               Given by: Aravindan
             </p>
           </li>
           <li class="collection-item avatar" style="cursor: pointer" onclick="saveIp('9 B')">
-            <img src="images/9.jpg" alt="9th" class="circle">
-            <span class="title">Class: Nine B</span>
+            <img src="images/10.jpg" alt="10th" class="circle">
+            <span class="title">Class: Ten B</span>
             <p>
               Given by: Aditya Radhakrishnan
             </p>
           </li>
           <li class="collection-item avatar" style="cursor: pointer" onclick="saveIp('11 A3')">
-            <img src="images/11.svg" alt="11th" class="circle">
-            <span class="title">Class: Eleven A<sub>3</sub></span>
+            <img src="images/12.svg" alt="12th" class="circle">
+            <span class="title">Class: Twelve A<sub>?</sub></span>
             <p>
               Given by: Nirmal Karthikeyan
             </p>
@@ -55,11 +55,10 @@
   });
   function saveIp(className) {
     db.ref('ipAddresses').child(ipAddress.replace(/\./g,' ')).set(className);
+    Materialize.toast('Please wait...');
     console.log(className);
     db.ref('ipAddresses').on('value', function(data) {
       if (data.child(ipAddress.replace(/\./g,' ')).val() == className) {
-        alert('Your class has been set to '+className+' for this IP Address.\
- However, if you get an error on the next page, then come back here and try again.');
         window.location.href = 'timetable.html';
       }
     });
