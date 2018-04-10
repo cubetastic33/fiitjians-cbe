@@ -7,9 +7,10 @@ function showOldPosts() {
       db.ref('/').on('value', function(snapshot) {
         var posts = snapshot.child('posts').val();
         var postNames = Object.keys(posts);
+        $('#memes').empty();
         for (var i = (postNames.length - 1); i >= 0; i--) {
           var post = posts[postNames[i]];
-          if (post.category != 'authorisationReq') {
+          if (post.category != 'private') {
             $('#memes').append('\
               <div id="post'+postNames[i]+'" class="meme card horizontal hoverable">\
                 <div class="card-image">\
@@ -27,7 +28,7 @@ function showOldPosts() {
               </div>\
             ');
           }
-          if (post.category == 'authorisationReq' && snapshot.child('users/'+uid+'/authorised').val() == 'yes') {
+          if (post.category == 'private' && snapshot.child('users/'+uid+'/authorised').val() == 'yes') {
             $('#memes').append('\
               <div id="post'+postNames[i]+'" class="meme card horizontal hoverable">\
                 <div class="card-image">\
@@ -38,7 +39,7 @@ function showOldPosts() {
                     <p><u>'+post.description+'</u></p>\
                     <h5>Category: </h5>'+post.category+'\
                     <h5>Author: </h5>'+post.author+'\
-                    <h5>Likes: </h5>'+snapshot.child('posts/'+postNames[i]+'/likes').numChildren()+'<br>\
+                    <h5>Likes: </h5>'+(snapshot.child('posts/'+postNames[i]+'/likes').numChildren() + 3)+'<br>\
                     <i id="'+postNames[i]+'" class="material-icons red-text like">thumb_up</i>\
                   </div>\
                 </div>\
@@ -53,40 +54,15 @@ function showOldPosts() {
             console.log(postName);
             db.ref('posts/'+postName+'/likes').child(user.uid).set('like');
             $('#'+postName).attr('class', 'material-icons green-text like');
-            window.location.href="memes.html";
           });
         });
-      });
-    } else {
-      db.ref('posts').on('value', function(snapshot) {
-        var posts = snapshot.val();
-        var postNames = Object.keys(posts);
-        for (var i = (postNames.length - 1); i >= 0; i--) {
-          var post = posts[postNames[i]];
-          if (post.category == 'public') {
-            $('#memes').append('\
-              <div id="post'+postNames[i]+'" class="meme card horizontal hoverable">\
-                <div class="card-image">\
-                  <img src="'+post.image+'" alt="meme"></img>\
-                </div>\
-                <div class="card-stacked">\
-                  <div class="card-content">\
-                    <p><u>'+post.description+'</u></p>\
-                    <h5>Category: </h5>'+post.category+'\
-                    <h5>Author: </h5>'+post.author+'\
-                  </div>\
-                </div>\
-              </div>\
-            ');
-          }
-        }
       });
     }
   });
 }
 
 $('#postBtn').click(function() {
-  Materialize.toast('Please wait...');
+  Materialize.toast('Please wait...', 5000);
   //Get values
   var category = $('#category').val();
   var image = document.getElementById('postImage').files[0];
@@ -110,7 +86,6 @@ $('#postBtn').click(function() {
     imageRef.getDownloadURL().then(function(url) {
       console.log(url);
       newPostName.child('image').set(url);
-      window.location.href="memes.html";
     });
   })
 });
