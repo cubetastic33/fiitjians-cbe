@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_from_directory, jsonify
 import get_timetable
+import projects
 
 def get_ipaddr():
   """
@@ -25,13 +26,29 @@ def index_html():
 def timetable_html():
   return render_template('timetable.html', my_class = get_timetable.get_class(get_ipaddr()), timetables = get_timetable.get_timetables(get_ipaddr()))
 
+@app.route('/projects.html')
+def projects_html():
+  return render_template('projects.html')
+
+@app.route('/calculate', methods=['GET'])
+def calculate_ajax():
+  x, steps = projects.euclids_algorithm(int(request.args.get('number1')), int(request.args.get('number2')))
+  y = projects.find_lcm(int(request.args.get('number1')), int(request.args.get('number2')))
+  #z = projects.find_factors(int(request.args.get('number1')))
+  print(steps)
+  return jsonify({'hcf': x, 'lcm': y, 'steps': steps})
+
+@app.route('/find_factors', methods=['GET'])
+def find_factors_ajax():
+  return jsonify({'factors': projects.find_factors(int(request.args.get('number1')))})
+
 @app.route('/memes.html')
 def memes_html():
   return render_template('memes.html')
 
-@app.route('/chatDiv.html')
-def chatDiv_html():
-  return render_template('chatDiv.html')
+@app.route('/upload.html')
+def upload_html():
+  return render_template('upload.html')
 
 @app.route('/profile.html')
 def profile_html():
@@ -52,6 +69,10 @@ def signup_html():
 @app.errorhandler(404)
 def page_not_found(e):
   return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+  return render_template('500.html'), 500
 
 @app.route('/get_ip_address', methods=['POST'])
 def get_ip_address():
