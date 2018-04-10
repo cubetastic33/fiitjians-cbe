@@ -38,9 +38,9 @@ def calculate_ajax():
   print(steps)
   return jsonify({'hcf': x, 'lcm': y, 'steps': steps})
 
-@app.route('/find_factors', methods=['GET'])
-def find_factors_ajax():
-  return jsonify({'factors': projects.find_factors(int(request.args.get('number1')))})
+@app.route('/find_prime_factors', methods=['GET'])
+def find_prime_factors_ajax():
+  return jsonify({'prime_factors': projects.find_prime_factors(int(request.args.get('number1')))})
 
 @app.route('/memes.html')
 def memes_html():

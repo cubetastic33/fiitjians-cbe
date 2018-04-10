@@ -30,19 +30,17 @@ def find_factors(x):
         n += 1
     return all_factors
 
-def pr(numberfortheparentforprimes, primefactors=[]):
+def find_prime_factors(numberfortheparentforprimes, primefactors=[]):
     i = 2
-    parent = 0
     while (i <= numberfortheparentforprimes):
+        parent = 0
         if (numberfortheparentforprimes % i == 0):
-            #it is a factor
             parent = numberfortheparentforprimes/i
             primefactors.append(i)
             break
-        i = i + 1
+        i = i + 1      
     if (parent != 1):
-        pr(parent, primefactors)
-    else:
-        return(primefactors)
-
-print(pr(33))
+        find_prime_factors(parent, primefactors)
+        return primefactors
+    else:    
+        return primefactors
